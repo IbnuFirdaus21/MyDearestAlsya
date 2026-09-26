@@ -609,7 +609,7 @@ export const CalendarPage: React.FC = () => {
                 <label className="block text-xs font-bold text-slate-700 mb-1">Upload Foto Media</label>
                 <MediaUploader
                   type="image"
-                  onUploadComplete={(url) => setFormPhotoUrl(url)}
+                  onUploadSuccess={(url) => setFormPhotoUrl(url)}
                 />
               </div>
 
