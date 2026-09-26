@@ -42,10 +42,10 @@ export const Footer: React.FC = () => {
             <Sparkles className="w-5 h-5 text-[#DB2777]" />
             <div className="text-left">
               <div className="text-lg font-bold font-serif text-[#DB2777] leading-tight">
-                {daysTogether} Days
+                {settings.relationship_status === 'coming_soon' ? 'Coming Soon' : `${daysTogether} Days`}
               </div>
               <div className="text-[10px] text-[#4A3B3E] opacity-60 uppercase tracking-[0.2em] font-sans font-bold">
-                Of Loving Each Other
+                {settings.relationship_status === 'coming_soon' ? 'Status Belum Resmi 💫' : 'Of Loving Each Other'}
               </div>
             </div>
           </div>

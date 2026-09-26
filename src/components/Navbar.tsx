@@ -54,7 +54,8 @@ export const Navbar: React.FC = () => {
                   {settings.hero_title || 'Isya'}
                 </span>
                 <p className="text-[10px] text-[#DB2777] font-sans font-bold tracking-[0.18em] uppercase opacity-75 hidden sm:block">
-                  {settings.partner1_name} & {settings.partner2_name} • {daysTogether} Days Together
+                  {settings.partner1_name} & {settings.partner2_name} •{' '}
+                  {settings.relationship_status === 'coming_soon' ? 'Coming Soon' : `${daysTogether} Days Together`}
                 </p>
               </div>
             </NavLink>

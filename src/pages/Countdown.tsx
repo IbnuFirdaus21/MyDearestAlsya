@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'motion/react';
 import confetti from 'canvas-confetti';
+import { NavLink } from 'react-router-dom';
 import { Clock, Heart, Sparkles, Trophy, Calendar, CheckCircle2 } from 'lucide-react';
 import { useCouple } from '../context/CoupleContext';
 
@@ -64,6 +65,22 @@ export const Countdown: React.FC = () => {
         </button>
       </div>
 
+      {settings.relationship_status === 'coming_soon' ? (
+        <div className="glass-card p-8 sm:p-12 rounded-3xl border border-rose-200/80 shadow-xl text-center space-y-4">
+          <div className="text-5xl">🔒</div>
+          <h2 className="font-serif font-extrabold text-2xl sm:text-3xl text-slate-800">Coming Soon</h2>
+          <p className="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">
+            Anniversary countdown belum aktif karena status hubungan masih "Coming Soon". Update di Settings kalau sudah resmi jadian ya~ 😳💕
+          </p>
+          <NavLink
+            to="/settings"
+            className="inline-flex items-center space-x-2 px-5 py-2.5 rounded-2xl bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold text-xs shadow-lg shadow-rose-200 hover:scale-105 transition-all"
+          >
+            <span>Buka Settings</span>
+          </NavLink>
+        </div>
+      ) : (
+        <>
       {/* Main Countdown Board */}
       <div className="glass-card p-8 sm:p-12 rounded-3xl border border-rose-200/80 shadow-xl text-center space-y-8 relative overflow-hidden">
         
@@ -189,6 +206,9 @@ export const Countdown: React.FC = () => {
           })}
         </div>
       </div>
+
+        </>
+      )}
 
     </div>
   );

@@ -9,11 +9,15 @@ CREATE TABLE IF NOT EXISTS settings (
   partner1_avatar TEXT,
   partner2_avatar TEXT,
   relationship_start_date DATE DEFAULT '2023-05-20',
+  relationship_status TEXT DEFAULT 'active',
   hero_title TEXT DEFAULT 'Our Little Universe',
   hero_subtitle TEXT,
   bg_music_url TEXT,
   particle_type TEXT DEFAULT 'hearts'
 );
+
+ALTER TABLE settings
+  ADD COLUMN IF NOT EXISTS relationship_status TEXT DEFAULT 'active';
 
 -- 2. MEMORIES TABLE
 CREATE TABLE IF NOT EXISTS memories (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'motion/react';
 import {
   Settings as SettingsIcon,
@@ -14,6 +14,10 @@ export const Settings: React.FC = () => {
   const { settings, updateSettings } = useCouple();
   const [formState, setFormState] = useState({ ...settings });
   const [savedSuccess, setSavedSuccess] = useState(false);
+
+  useEffect(() => {
+    setFormState({ ...settings });
+  }, [settings]);
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -172,11 +176,28 @@ export const Settings: React.FC = () => {
             <label className="block text-xs font-semibold text-slate-700 mb-1">Relationship Start Date</label>
             <input
               type="date"
-              required
+              required={formState.relationship_status !== 'coming_soon'}
+              disabled={formState.relationship_status === 'coming_soon'}
               value={formState.relationship_start_date}
               onChange={(e) => setFormState({ ...formState, relationship_start_date: e.target.value })}
-              className="w-full px-4 py-2.5 rounded-xl border border-rose-200 text-xs sm:text-sm outline-none bg-white"
+              className="w-full px-4 py-2.5 rounded-xl border border-rose-200 text-xs sm:text-sm outline-none bg-white disabled:bg-slate-100 disabled:text-slate-400 disabled:cursor-not-allowed"
             />
+            <label className="flex items-center space-x-2 mt-2 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={formState.relationship_status === 'coming_soon'}
+                onChange={(e) =>
+                  setFormState({
+                    ...formState,
+                    relationship_status: e.target.checked ? 'coming_soon' : 'active'
+                  })
+                }
+                className="w-3.5 h-3.5 rounded border-rose-300 text-rose-500 focus:ring-rose-400"
+              />
+              <span className="text-[11px] font-semibold text-rose-500">
+                Belum jadian, tampilkan "Coming Soon" ✨
+              </span>
+            </label>
           </div>
 
           <div>

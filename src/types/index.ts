@@ -93,6 +93,7 @@ export interface CoupleSettings {
   partner2_avatar: string;
   cover_photo?: string;
   relationship_start_date: string;
+  relationship_status?: 'active' | 'coming_soon';
   hero_title: string;
   hero_subtitle: string;
   bg_music_url: string;

@@ -128,16 +128,30 @@ export const Landing: React.FC = () => {
           </div>
 
           <div className="flex flex-col items-center justify-center py-6">
-            <div className="text-5xl font-bold font-serif text-[#DB2777] mb-1">
-              {daysTogether}
-            </div>
-            <div className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-[#4A3B3E] opacity-60">
-              Days Since Day One
-            </div>
+            {settings.relationship_status === 'coming_soon' ? (
+              <>
+                <div className="text-3xl mb-1">🔒</div>
+                <div className="text-lg font-bold font-serif text-[#DB2777] mb-1">Coming Soon</div>
+                <div className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-[#4A3B3E] opacity-60 text-center">
+                  Belum resmi jadian nih 😳
+                </div>
+              </>
+            ) : (
+              <>
+                <div className="text-5xl font-bold font-serif text-[#DB2777] mb-1">
+                  {daysTogether}
+                </div>
+                <div className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-[#4A3B3E] opacity-60">
+                  Days Since Day One
+                </div>
+              </>
+            )}
           </div>
 
           <div className="text-center italic font-serif text-xs text-[#4A3B3E] opacity-80 pt-2 border-t border-[#FDE2E8]">
-            Relationship Started: {settings.relationship_start_date}
+            {settings.relationship_status === 'coming_soon'
+              ? 'Relationship Status: Coming Soon 💫'
+              : `Relationship Started: ${settings.relationship_start_date}`}
           </div>
         </div>
 
@@ -150,7 +164,17 @@ export const Landing: React.FC = () => {
             <Calendar className="w-4 h-4 text-[#DB2777]" />
           </div>
 
-          <div className="grid grid-cols-3 gap-2 py-2">
+          {settings.relationship_status === 'coming_soon' ? (
+            <div className="flex-1 flex flex-col items-center justify-center py-6 space-y-2">
+              <div className="text-3xl">⏳</div>
+              <div className="text-sm font-bold font-serif text-[#DB2777]">Coming Soon</div>
+              <div className="text-[10px] font-sans font-bold uppercase tracking-[0.2em] text-[#4A3B3E] opacity-60 text-center px-2">
+                Ticker dimulai begitu status resmi ✨
+              </div>
+            </div>
+          ) : (
+            <>
+              <div className="grid grid-cols-3 gap-2 py-2">
             <div className="bg-[#FFF9FA] p-2.5 rounded-xl border border-[#FDE2E8] text-center">
               <span className="block font-serif font-bold text-xl text-[#DB2777]">{timeTogether.years}</span>
               <span className="text-[9px] font-sans font-bold uppercase text-[#4A3B3E] opacity-60">Years</span>
@@ -175,11 +199,13 @@ export const Landing: React.FC = () => {
               <span className="block font-serif font-bold text-xl text-[#DB2777]">{timeTogether.seconds}</span>
               <span className="text-[9px] font-sans font-bold uppercase text-[#4A3B3E] opacity-60">Secs</span>
             </div>
-          </div>
+              </div>
 
-          <div className="text-center text-[10px] font-sans font-bold uppercase tracking-widest text-[#DB2777]">
-            Every second is a sweet gift 💕
-          </div>
+              <div className="text-center text-[10px] font-sans font-bold uppercase tracking-widest text-[#DB2777]">
+                Every second is a sweet gift 💕
+              </div>
+            </>
+          )}
         </div>
 
         {/* Animated Audio Player Card */}
