@@ -29,7 +29,7 @@ export const CoupleProvider: React.FC<{ children: React.ReactNode }> = ({ childr
     partner2_avatar: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=400',
     cover_photo: 'https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=1200',
     relationship_start_date: '2023-05-20',
-    hero_title: 'sabrianisa',
+    hero_title: 'Isya',
     hero_subtitle: 'A sweet corner of the cosmos made entirely of our love, quiet laughs, and endless memories.',
     bg_music_url: 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=romantic-piano-112199.mp3',
     particle_type: 'hearts'

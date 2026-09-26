@@ -39,7 +39,7 @@ export const Landing: React.FC = () => {
           </span>
           
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-light text-[#4A3B3E] leading-tight font-serif">
-            You are the <span className="italic font-normal text-[#DB2777]">stars</span> in my little sky.
+            You are the <span className="italic font-normal text-[#DB2777]">the one</span> whom my soul loves.
           </h1>
 
           <p className="text-xs sm:text-sm text-[#4A3B3E] opacity-80 leading-relaxed font-sans max-w-lg">

@@ -21,7 +21,7 @@ const DEFAULT_SETTINGS: CoupleSettings = {
   cover_photo:
     "https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&q=80&w=1200",
   relationship_start_date: "2023-05-20",
-  hero_title: "sabrianisa",
+  hero_title: "Isya",
   hero_subtitle:
     "A sweet corner of the cosmos made entirely of our love, quiet laughs, and endless memories.",
   bg_music_url:
@@ -115,7 +115,7 @@ export const dataService = {
             res.hero_title === "Our Little Universe" ||
             res.hero_title === "Our Universe"
           ) {
-            res.hero_title = "sabrianisa";
+            res.hero_title = "Isya";
           }
           return res;
         }

@@ -51,7 +51,7 @@ export const Navbar: React.FC = () => {
               </div>
               <div>
                 <span className="font-serif font-bold italic text-xl text-[#DB2777] tracking-tight">
-                  {settings.hero_title || 'sabrianisa'}
+                  {settings.hero_title || 'Isya'}
                 </span>
                 <p className="text-[10px] text-[#DB2777] font-sans font-bold tracking-[0.18em] uppercase opacity-75 hidden sm:block">
                   {settings.partner1_name} & {settings.partner2_name} • {daysTogether} Days Together
