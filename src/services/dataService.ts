@@ -109,6 +109,7 @@ export const dataService = {
             ...raw,
             hero_subtitle: hero_subtitle || DEFAULT_SETTINGS.hero_subtitle,
             cover_photo: cover_photo || DEFAULT_SETTINGS.cover_photo,
+            relationship_start_date: raw.relationship_start_date ?? '',
           };
 
           if (
@@ -134,7 +135,11 @@ export const dataService = {
   },
 
   async updateSettings(settings: CoupleSettings): Promise<CoupleSettings> {
-    const payload = { id: "default", ...settings };
+    const payload = {
+      id: "default",
+      ...settings,
+      relationship_start_date: settings.relationship_start_date || null,
+    };
 
     // Always persist cover_photo to localStorage immediately as client backup
     if (settings.cover_photo && typeof window !== "undefined") {
@@ -191,7 +196,7 @@ export const dataService = {
         console.warn("Supabase updateSettings failed:", err);
       }
     }
-    return payload;
+    return { ...settings, id: payload.id };
   },
 
   // MEMORIES
